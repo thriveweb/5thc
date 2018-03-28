@@ -1,10 +1,8 @@
-siteTitle: Netlify CMS + React Starter
+siteTitle: The 5th C
 siteUrl: 'https://the5thc.netlify.com'
-siteDescription: >-
-  A starter project for creating lightning-fast, offline-first websites with
-  Netlify CMS and React.
+siteDescription: I am everything you need to know about diamonds
 socialMediaCard:
-  image: /images/uploads/card-og.png
-  twitterCreatorAccount: '@Jinksi'
+  image: ''
+  twitterCreatorAccount: ''
   twitterSiteAccount: ''
 headerScripts: <!-- Add your analytics scripts / verification meta here -->
