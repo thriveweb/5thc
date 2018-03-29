@@ -7,19 +7,23 @@ import _kebabCase from 'lodash/kebabCase'
 
 import ScrollToTop from './components/ScrollToTop'
 import Meta from './components/Meta'
-import Home from './views/Home'
-import About from './views/About'
-import Blog from './views/Blog'
-import SinglePost from './views/SinglePost'
-import Contact from './views/Contact'
-import NoMatch from './views/NoMatch'
-import Nav from './components/Nav'
+import ServiceWorkerNotifications from './components/ServiceWorkerNotifications'
+import Spinner from './components/Spinner'
+
 import Header from './components/Header'
 import Footer from './components/Footer'
 
-import ServiceWorkerNotifications from './components/ServiceWorkerNotifications'
+import About from './views/About'
+import ApplyNow from './views/ApplyNow'
+import ApplyNowAuth from './views/ApplyNowAuth'
+import Contact from './views/Contact'
+import Home from './views/Home'
+import Promotions from './views/Promotions'
+import PromotionsSingle from './views/PromotionsSingle'
+import TheProcess from './views/TheProcess'
+import NoMatch from './views/NoMatch'
+
 import AOS from './components/AOS'
-import Spinner from './components/Spinner'
 import data from './data.json'
 import { documentHasTerm, getCollectionTerms } from './util/collection'
 
@@ -70,17 +74,9 @@ class App extends Component {
       headerScripts
     } = globalSettings
 
-    const posts = this.getDocuments('posts').filter(
-      post => post.status !== 'Draft'
-    )
-    const categoriesFromPosts = getCollectionTerms(posts, 'categories')
-    const postCategories = this.getDocuments('postCategories').filter(
-      category => categoriesFromPosts.indexOf(category.name.toLowerCase()) >= 0
-    )
-
-    const RouteWithHeader = ({ children, title }) => (
+    const RouteWithHeader = ({ children, title, intro, className }) => (
       <React.Fragment>
-        <Header title={title} />
+        <Header title={title} className={className} intro={intro} />
         {children}
       </React.Fragment>
     )
@@ -122,7 +118,7 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'home')
                 return (
-                  <RouteWithHeader title={page.title}>
+                  <RouteWithHeader intro>
                     <Home page={page} {...props} />
                   </RouteWithHeader>
                 )
@@ -134,8 +130,32 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'about')
                 return (
-                  <RouteWithHeader title={page.title}>
+                  <RouteWithHeader title={page.title} className='header-about'>
                     <About page={page} {...props} />
+                  </RouteWithHeader>
+                )
+              }}
+            />
+            <Route
+              path='/apply-now/'
+              exact
+              render={props => {
+                const page = this.getDocument('pages', 'apply-now')
+                return (
+                  <RouteWithHeader title={page.title} className='header-about'>
+                    <ApplyNow page={page} {...props} />
+                  </RouteWithHeader>
+                )
+              }}
+            />
+            <Route
+              path='/apply-now-auth/'
+              exact
+              render={props => {
+                const page = this.getDocument('pages', 'apply-now-auth')
+                return (
+                  <RouteWithHeader title={page.title} className='header-about'>
+                    <ApplyNowAuth page={page} {...props} />
                   </RouteWithHeader>
                 )
               }}
@@ -143,73 +163,55 @@ class App extends Component {
             <Route
               path='/contact/'
               exact
-              render={props => (
-                <Contact
-                  page={this.getDocument('pages', 'contact')}
-                  siteTitle={siteTitle}
-                  {...props}
-                />
-              )}
+              render={props => {
+                const page = this.getDocument('pages', 'contact')
+                return (
+                  <RouteWithHeader title={page.title} className='header-about'>
+                    <Contact page={page} {...props} />
+                  </RouteWithHeader>
+                )
+              }}
+            />
+            <Route
+              path='/promotions/'
+              exact
+              render={props => {
+                const page = this.getDocument('pages', 'promotions')
+                return (
+                  <RouteWithHeader title={page.title} className='header-about'>
+                    <Promotions page={page} {...props} />
+                  </RouteWithHeader>
+                )
+              }}
+            />
+            <Route
+              path='/promotions-single/'
+              exact
+              render={props => {
+                const page = this.getDocument('pages', 'promotions-single')
+                return (
+                  <RouteWithHeader className='header-single-article'>
+                    <PromotionsSingle page={page} {...props} />
+                  </RouteWithHeader>
+                )
+              }}
+            />
+            <Route
+              path='/the-process/'
+              exact
+              render={props => {
+                const page = this.getDocument('pages', 'the-process')
+                return (
+                  <RouteWithHeader title={page.title} className='header-about'>
+                    <TheProcess page={page} {...props} />
+                  </RouteWithHeader>
+                )
+              }}
             />
 
-            {/* Blog Routes */}
-            <Route
-              path='/blog/'
-              exact
-              render={props => (
-                <Blog
-                  posts={posts}
-                  postCategories={postCategories}
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path='/blog/category/:slug/'
-              render={props => {
-                //  help needed
-                const slug = props.match.params.slug
-                const categoryPosts = posts.filter(post =>
-                  documentHasTerm(post, 'categories', slug)
-                )
-                return (
-                  <Blog
-                    posts={categoryPosts}
-                    postCategories={postCategories}
-                    showFeatured={false}
-                    {...props}
-                  />
-                )
-              }}
-            />
-            <Route
-              path='/blog/:slug/'
-              render={props => {
-                const slug = props.match.params.slug
-                const singlePostID = _findIndex(
-                  posts,
-                  item => _kebabCase(item.title) === slug
-                )
-                const singlePost = posts[singlePostID]
-                const nextPost = posts[singlePostID + 1]
-                const prevPost = posts[singlePostID - 1]
-                return (
-                  <SinglePost
-                    singlePost={singlePost}
-                    nextPostURL={
-                      nextPost && `/blog/${_kebabCase(nextPost.title)}/`
-                    }
-                    prevPostURL={
-                      prevPost && `/blog/${_kebabCase(prevPost.title)}/`
-                    }
-                    {...props}
-                  />
-                )
-              }}
-            />
             <Route
               render={props => (
-                <RouteWithHeader>
+                <RouteWithHeader title='404 – Page Not Found'>
                   <NoMatch siteUrl={siteUrl} />
                 </RouteWithHeader>
               )}

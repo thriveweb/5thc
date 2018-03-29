@@ -14,7 +14,7 @@ export default ({ handlePopupOpen, menu }) => (
               Home
             </NavLink>
           </li>
-          <li className='nav-item active'>
+          <li className='nav-item'>
             <NavLink className='nav-link' to='/about/'>
               About Me
             </NavLink>
