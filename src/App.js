@@ -14,8 +14,9 @@ import SinglePost from './views/SinglePost'
 import Contact from './views/Contact'
 import NoMatch from './views/NoMatch'
 import Nav from './components/Nav'
+import Header from './components/Header'
 import Footer from './components/Footer'
-import GithubCorner from './components/GithubCorner'
+
 import ServiceWorkerNotifications from './components/ServiceWorkerNotifications'
 import AOS from './components/AOS'
 import Spinner from './components/Spinner'
@@ -77,14 +78,21 @@ class App extends Component {
       category => categoriesFromPosts.indexOf(category.name.toLowerCase()) >= 0
     )
 
+    const RouteWithHeader = ({ children, title }) => (
+      <React.Fragment>
+        <Header title={title} />
+        {children}
+      </React.Fragment>
+    )
+
     return (
       <Router>
-        <div className='React-Wrap'>
+        <div className='React-Wrap wrapper'>
           {this.state.loading && <Spinner />}
           <AOS options={{ duration: 250 }} />
           <ScrollToTop />
           <ServiceWorkerNotifications reloadOnUpdate />
-          <GithubCorner url='https://github.com/Jinksi/netlify-cms-react-starter' />
+
           <Helmet
             defaultTitle={siteTitle}
             titleTemplate={`${siteTitle} | %s`}
@@ -106,21 +114,31 @@ class App extends Component {
             }
             headerScripts={headerScripts}
           />
-          <Nav />
+
           <Switch>
             <Route
               path='/'
               exact
-              render={props => (
-                <Home page={this.getDocument('pages', 'home')} {...props} />
-              )}
+              render={props => {
+                const page = this.getDocument('pages', 'home')
+                return (
+                  <RouteWithHeader title={page.title}>
+                    <Home page={page} {...props} />
+                  </RouteWithHeader>
+                )
+              }}
             />
             <Route
               path='/about/'
               exact
-              render={props => (
-                <About page={this.getDocument('pages', 'about')} {...props} />
-              )}
+              render={props => {
+                const page = this.getDocument('pages', 'about')
+                return (
+                  <RouteWithHeader title={page.title}>
+                    <About page={page} {...props} />
+                  </RouteWithHeader>
+                )
+              }}
             />
             <Route
               path='/contact/'
@@ -189,9 +207,15 @@ class App extends Component {
                 )
               }}
             />
-
-            <Route render={() => <NoMatch siteUrl={siteUrl} />} />
+            <Route
+              render={props => (
+                <RouteWithHeader>
+                  <NoMatch siteUrl={siteUrl} />
+                </RouteWithHeader>
+              )}
+            />
           </Switch>
+
           <Footer />
         </div>
       </Router>

@@ -1,7 +1,0 @@
-mainMenu:
-  - path: /
-    title: Home
-  - path: /about/
-    title: About Me
-  - path: /the-process/
-    title: The Process
