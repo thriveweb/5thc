@@ -41,13 +41,14 @@ section4:
     src="https://www.youtube.com/embed/dz5vG1JHtQI" frameborder="0"
     allow="autoplay; encrypted-media" allowfullscreen></iframe>
 section5:
+  buttonLabel: Apply for Finance
+  buttonLinkTo: /
   content: >-
     STILL NOT SURE WHAT TO GET?
 
 
     Don't fret, I'm here to help. Contact me directly, right now, and I'll take
     care of it.
-  linkTo: /
   title: Contact Me
 ---
 
