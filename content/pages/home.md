@@ -1,5 +1,6 @@
 ---
 header:
+  backgroundImage: /images/uploads/header-image.jpg
   buttonLabel: Watch Video
   subtitle: Find a better diamond or better price and I'll beat it by 10%
   title: Introducing the 5th C
@@ -7,7 +8,6 @@ header:
     <iframe width="560" height="315"
     src="https://www.youtube.com/embed/dz5vG1JHtQI" frameborder="0"
     allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  backgroundImage: /images/uploads/header-image.jpg
 section1:
   buttonLabel: Discover More
   subtitle: >-
@@ -26,9 +26,9 @@ section2:
       linkTo: /the-process
       title: I finance your investment
 section3:
+  backgroundImage: /images/uploads/mason-jones-39738.png
   buttonLabel: Apply Now
   buttonLinkTo: /
-  backgroundImage: /images/uploads/mason-jones-39738.png
   subtitle: >-
     With a best price guarantee and life time warranty, let me take care of
     everything.
@@ -46,9 +46,9 @@ section4:
     src="https://www.youtube.com/embed/dz5vG1JHtQI" frameborder="0"
     allow="autoplay; encrypted-media" allowfullscreen></iframe>
 section5:
+  backgroundImage: /images/uploads/moss-334062.jpg
   buttonLabel: Apply for Finance
   buttonLinkTo: /
-  backgroundImage: /images/uploads/moss-334062.jpg
   content: >-
     ### STILL NOT SURE WHAT TO GET?
 
@@ -57,6 +57,9 @@ section5:
   title: Contact Me
 section6:
   logos:
-    - {}
+    - image: /images/uploads/ft-logo-1.jpg
+    - image: /images/uploads/ft-logo-2.jpg
+    - image: /images/uploads/ft-logo-3.jpg
   title: As Featured In
 ---
+
