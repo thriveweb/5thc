@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { Link } from 'react-router-dom'
 
 import LazyImage from '../components/LazyImage'
 import Content from '../components/Content.js'
@@ -14,99 +15,84 @@ export default ({ page }) => (
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
-              <h2 className='text-center mx-auto'>
-                I AM EVERYTHING YOU NEED TO KNOW ABOUT DIAMONDS
-              </h2>
+              <h2 className='text-center mx-auto'>{page.subtitle}</h2>
             </div>
           </div>
         </div>
       </section>
 
-      <section className='section section-5-c'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-3 offset-md-9'>
-              <div className='section-head'>
-                <h2>THE 5TH C</h2>
-              </div>
+      {page.section1 && (
+        <section
+          className='section section-5-c'
+          style={{ backgroundImage: `url(${page.section1.backgroundImage})` }}
+        >
+          <div className='container'>
+            <div className='row'>
+              <div className='col-md-3 offset-md-9'>
+                <div className='section-head'>
+                  <h2>{page.section1.title}</h2>
+                </div>
 
-              <div className='section-body'>
-                <p>
-                  It’s time for you to face the truth: you don’t know diamonds.
-                  But that’s ok, because you’ve found me. I will find the
-                  perfect diamond. I will find the perfect price. I will
-                  personally make sure you blow her socks out of the water,
-                  because this is what I do. I find the diamonds for you. So
-                  don’t worry that not so pretty head about the four Cs: the
-                  cut, colour, clarity and carat weight.
-                </p>
-              </div>
+                <div className='section-body'>
+                  <Content source={page.section1.content} />
+                </div>
 
-              <div className='section-foot'>
-                <h4>I am the Fifth C</h4>
+                <div className='section-foot'>
+                  <h4>{page.section1.quoteAuthor}</h4>
 
-                <span>Your Diamond Concierge.</span>
+                  <span>{page.section1.quoteAuthorTitle}</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className='section section-ct'>
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
               <div className='section-head'>
-                <h2 className='text-center mx-auto'>
-                  Sed ut perspiciatis unde omnis iste natus error sit volupt
-                </h2>
+                <h2 className='text-center mx-auto'>{page.section2.title}</h2>
               </div>
 
               <div className='section-body text-center'>
-                <img
-                  src='/css/images/5c-image.jpg'
-                  className='img-fluid'
-                  alt=''
-                />
+                <img src={page.section2.image} className='img-fluid' alt='' />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className='section section-help'>
+      <section
+        className='section section-help'
+        style={{ backgroundImage: `url(${page.section3.backgroundImage})` }}
+      >
         <div className='container'>
           <div className='row'>
             <div className='col-md-6 offset-md-pull-6'>
               <div className='section-head'>
-                <h2>I'm here to help you</h2>
+                <h2>{page.section3.title}</h2>
               </div>
 
               <div className='section-body'>
-                <p>
-                  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                  odit aut fugit, sed quia consequuntur magni dolores eos qui
-                  ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-                  qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                  velit, sed quia non numquam eius modi tempora incidunt ut
-                  labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad
-                  minima veniam, quis nostrum exercitationem ullam corporis
-                  suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur
-                  utem vel eum iure.
-                </p>
+                <Content source={page.section3.content} />
               </div>
 
               <div className='section-foot'>
                 <div className='btn-actions'>
-                  <a href='#' className='btn btn-white'>
+                  <Link to='/contact/' className='btn btn-white'>
                     Contact Me
-                  </a>
+                  </Link>
                 </div>
 
                 <div className='btn-actions'>
-                  <a href='#' className='btn btn-white'>
-                    Apply for Finance
-                  </a>
+                  <Link
+                    to={page.section3.buttonLinkTo}
+                    className='btn btn-white'
+                  >
+                    {page.section3.buttonLabel}
+                  </Link>
                 </div>
               </div>
             </div>

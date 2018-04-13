@@ -117,9 +117,33 @@ collections: # A list of collections the CMS should be able to edit
         fields:
           - {label: Title, name: title, widget: string}
           - {label: Subtitle, name: subtitle, widget: string}
-          - {label: Featured Image, name: featuredImage, widget: image}
-          - {label: Section 1, name: section1, widget: markdown}
-          - {label: Section 2, name: section2, widget: markdown}
+          - label: Section 1
+            name: section1
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Content, name: content, widget: markdown, required: false}
+              - {label: Background Image, name: backgroundImage, widget: image, required: false}
+              - {label: Quote Author, name: quoteAuthor, widget: string, required: false}
+              - {label: Quote Author Title, name: quoteAuthorTitle, widget: string, required: false}
+          - label: Section 2
+            name: section2
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Image, name: image, widget: image, required: false}
+          - label: Section 3
+            name: section3
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Content, name: content, widget: markdown, required: false}
+              - {label: Background Image, name: backgroundImage, widget: image, required: false}
+              - {label: Button Label, name: buttonLabel, widget: string, required: false}
+              - {label: Button Link To, name: buttonLinkTo, widget: string, required: false}
 
       - file: "content/pages/contact.md"
         label: "Contact Page"
