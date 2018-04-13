@@ -167,39 +167,6 @@ export default ({ page }) => {
         </div>
       </section>
 
-      <section
-        className='section section-contact'
-        style={{ backgroundImage: `url(${section5.backgroundImage})` }}
-      >
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-6 offset-md-6'>
-              <div className='section-head'>
-                <h2>{section5.title}</h2>
-              </div>
-
-              <div className='section-body'>
-                <Content source={section5.content} />
-              </div>
-
-              <div className='btn-actions'>
-                <Link to='/contact/' className='btn btn-white'>
-                  Contact me
-                </Link>
-              </div>
-
-              {section5.buttonLinkTo && (
-                <div className='btn-actions'>
-                  <Link to={section5.buttonLinkTo} className='btn btn-white'>
-                    {section5.buttonLabel}
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <div className='section section section-featured-in'>
         <div className='row'>
           <div className='section-head'>

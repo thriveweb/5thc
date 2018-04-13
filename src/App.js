@@ -73,11 +73,22 @@ class App extends Component {
       socialMediaCard,
       headerScripts
     } = globalSettings
+    const homepage = this.getDocument('pages', 'home')
 
-    const RouteWithHeader = ({ children, title, intro, className }) => (
+    const RouteWithHeader = ({
+      children,
+      title,
+      intro,
+      className,
+      showContactSection
+    }) => (
       <React.Fragment>
         <Header title={title} className={className} intro={intro} />
         {children}
+        <Footer
+          showContactSection={showContactSection}
+          contactSection={homepage.section5}
+        />
       </React.Fragment>
     )
 
@@ -116,10 +127,9 @@ class App extends Component {
               path='/'
               exact
               render={props => {
-                const page = this.getDocument('pages', 'home')
                 return (
-                  <RouteWithHeader intro={page.header}>
-                    <Home page={page} {...props} />
+                  <RouteWithHeader intro={homepage.header} showContactSection>
+                    <Home page={homepage} {...props} />
                   </RouteWithHeader>
                 )
               }}
@@ -202,7 +212,11 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'the-process')
                 return (
-                  <RouteWithHeader title={page.title} className='header-about'>
+                  <RouteWithHeader
+                    title={page.title}
+                    className='header-about'
+                    showContactSection
+                  >
                     <TheProcess page={page} {...props} />
                   </RouteWithHeader>
                 )
@@ -217,8 +231,6 @@ class App extends Component {
               )}
             />
           </Switch>
-
-          <Footer />
         </div>
       </Router>
     )
