@@ -10,38 +10,40 @@ export default ({ page, siteTitle }) => (
       <title>{page.title}</title>
     </Helmet>
 
-    <section className='section section-about-intro'>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-md-12'>
-            <h2 className='text-center mx-auto'>
-              CONTACT ME NOW. URGENTLY. I MEAN IT.
-            </h2>
+    {page.introSection && (
+      <section className='section section-about-intro'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-12'>
+              <h2 className='text-center mx-auto'>{page.introSection.title}</h2>
 
-            <p className='text-center mx-auto p-alt'>
-              The purpose of your brochure may differ from business to business.
-              Some are designed to display services, whereas others are focused
-              on selling an idea. No matter what the focus of the brochure is,
-              it needs to be readable, intriguing, and functional. The brochure
-              must grab a viewer.
-            </p>
-          </div>
+              <Content
+                className='text-center mx-auto p-alt'
+                source={page.introSection.content}
+              />
+            </div>
 
-          <div className='section-foot mx-auto text-center'>
-            <ul>
-              <li>
-                Call me: <a href='tel:5555 555 555'>5555 555 555</a>
-              </li>
+            <div className='section-foot mx-auto text-center'>
+              <ul>
+                <li>
+                  {page.introSection.phoneLabel}:{' '}
+                  <a href={`tel:${page.introSection.phoneLabel}`}>
+                    {page.introSection.phone}
+                  </a>
+                </li>
 
-              <li>
-                Email me:{' '}
-                <a href='mailto:hello@5thc.com.au'>hello@5thc.com.au</a>
-              </li>
-            </ul>
+                <li>
+                  {page.introSection.emailLabel}:{' '}
+                  <a href={`mailto:${page.introSection.email}`}>
+                    {page.introSection.email}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    )}
 
     <section className='section section-contact-form'>
       <div className='container'>

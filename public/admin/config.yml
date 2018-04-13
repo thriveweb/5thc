@@ -166,8 +166,19 @@ collections: # A list of collections the CMS should be able to edit
         name: "contact-page"
         fields:
           - {label: Title, name: title, widget: string}
-          - {label: Subtitle, name: subtitle, widget: string}
-          - {label: Body, name: body, widget: markdown}
+          - label: Intro Section
+            name: introSection
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Content, name: content, widget: markdown, required: false}
+              - {label: Phone Label, name: phoneLabel, widget: string, required: false}
+              - {label: Phone, name: phone, widget: string, required: false}
+              - {label: Email Label, name: emailLabel, widget: string, required: false}
+              - {label: Email, name: email, widget: string, required: false}
+
+
 
   - name: posts
     label: Post
