@@ -118,7 +118,7 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'home')
                 return (
-                  <RouteWithHeader intro>
+                  <RouteWithHeader intro={page.header}>
                     <Home page={page} {...props} />
                   </RouteWithHeader>
                 )
