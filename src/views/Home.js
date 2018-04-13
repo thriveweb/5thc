@@ -204,22 +204,17 @@ export default ({ page }) => {
         <div className='row'>
           <div className='section-head'>
             <div className='col-md-12'>
-              <h2 className='text-center'>As featured in</h2>
+              <h2 className='text-center'>{section6.title}</h2>
             </div>
 
             <div className='section-logos'>
               <div className='row'>
-                <div className='col-md-4 text-center  d-flex justify-content-center'>
-                  <img src='/css/images/ft-logo-1.jpg' alt='' />
-                </div>
-
-                <div className='col-md-4 text-center  d-flex justify-content-center'>
-                  <img src='/css/images/ft-logo-2.jpg' alt='' />
-                </div>
-
-                <div className='col-md-4 text-center  d-flex justify-content-center'>
-                  <img src='/css/images/ft-logo-3.jpg' alt='' />
-                </div>
+                {!!section6.logos &&
+                  section6.logos.map(logo => (
+                    <div className='col-md-4 text-center  d-flex justify-content-center'>
+                      <img src={logo.image} alt='' />
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
