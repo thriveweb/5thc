@@ -40,9 +40,76 @@ collections: # A list of collections the CMS should be able to edit
         label: "Home Page"
         name: "home-page"
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Subtitle, name: subtitle, widget: string}
-          - {label: Body, name: body, widget: markdown}
+          - label: Header
+            name: header
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: string}
+              - {label: Background Image, name: backgroundImage, widget: image}
+              - {label: Button Label, name: buttonLabel, widget: string}
+              - {label: Video Embed Code, name: videoEmbedCode, widget: text}
+          - label: Section 1
+            name: section1
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Subtitle, name: subtitle, widget: string, required: false}
+              - {label: Button Label, name: buttonLabel, widget: string, required: false}
+              - {label: Button Link To, name: buttonLinkTo, widget: string, required: false}
+          - label: Section 2
+            name: section2
+            widget: object
+            required: false
+            fields:
+              - label: Featured Card
+                name: featureCard
+                widget: list
+                fields:
+                  - {label: Title, name: title, widget: string, required: false}
+                  - {label: Image, name: image, widget: image, required: false}
+                  - {label: Link To, name: linkTo, widget: string, required: false}
+          - label: Section 3
+            name: section3
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Subtitle, name: subtitle, widget: string, required: false}
+              - {label: Button Label, name: buttonLabel, widget: string, required: false}
+              - {label: Button Link To, name: buttonLinkTo, widget: string, required: false}
+          - label: Video Section
+            name: section4
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Content, name: content, widget: markdown, required: false}
+              - {label: Video Embed Code, name: videoEmbedCode, widget: text, required: false}
+          - label: Contact Section
+            name: section5
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Content, name: content, widget: markdown, required: false}
+              - {label: Background Image, name: backgroundImage, widget: image, required: false}
+              - {label: Button Label, name: buttonLabel, widget: string, required: false}
+              - {label: Button Link To, name: buttonLinkTo, widget: string, required: false}
+          - label: Featured Section
+            name: section6
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - label: Logos
+                name: logos
+                widget: list
+                fields:
+                  - {label: Image, name: image, widget: image, required: false}
+
       - file: "content/pages/about.md"
         label: "About Page"
         name: "about-page"
@@ -52,6 +119,7 @@ collections: # A list of collections the CMS should be able to edit
           - {label: Featured Image, name: featuredImage, widget: image}
           - {label: Section 1, name: section1, widget: markdown}
           - {label: Section 2, name: section2, widget: markdown}
+
       - file: "content/pages/contact.md"
         label: "Contact Page"
         name: "contact-page"
