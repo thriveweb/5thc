@@ -7,6 +7,7 @@ header:
     <iframe width="560" height="315"
     src="https://www.youtube.com/embed/dz5vG1JHtQI" frameborder="0"
     allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  backgroundImage: /images/uploads/header-image.jpg
 section1:
   buttonLabel: Discover More
   subtitle: >-
@@ -18,13 +19,16 @@ section2:
     - image: /images/uploads/diamond-gem-cubic-zirconia-jewel-68740.png
       linkTo: /the-process
       title: I find the best diamond
-    - linkTo: /the-process
+    - image: /images/uploads/anne-edgar-119373.png
+      linkTo: /the-process
       title: I help you choose the ring
-    - linkTo: /the-process
+    - image: /images/uploads/verne-ho-23880.png
+      linkTo: /the-process
       title: I finance your investment
 section3:
   buttonLabel: Apply Now
   buttonLinkTo: /
+  backgroundImage: /images/uploads/mason-jones-39738.png
   subtitle: >-
     With a best price guarantee and life time warranty, let me take care of
     everything.
@@ -44,9 +48,9 @@ section4:
 section5:
   buttonLabel: Apply for Finance
   buttonLinkTo: /
+  backgroundImage: /images/uploads/moss-334062.jpg
   content: >-
-    STILL NOT SURE WHAT TO GET?
-
+    ### STILL NOT SURE WHAT TO GET?
 
     Don't fret, I'm here to help. Contact me directly, right now, and I'll take
     care of it.
@@ -56,4 +60,3 @@ section6:
     - {}
   title: As Featured In
 ---
-

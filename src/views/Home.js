@@ -1,10 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { Link } from 'react-router-dom'
 
 import Content from '../components/Content'
 
 export default ({ page }) => {
-  const { title, subtitle } = page
+  const { section1, section2, section3, section4, section5, section6 } = page
   return (
     <main role='main' className='main'>
       <Helmet>
@@ -16,21 +17,19 @@ export default ({ page }) => {
           <div className='row'>
             <div className='col-md-12'>
               <div className='section-head'>
-                <h2 className='mx-auto'>
-                  I AM EVERYTHING YOU NEED TO KNOW ABOUT DIAMONDS
-                </h2>
+                <h2 className='mx-auto'>{section1.title}</h2>
 
-                <p>
-                  There's the Cut, the Colour, the Clarity, the Carat, and then
-                  there's me, the 5th C
-                </p>
+                <p>{section1.subtitle}</p>
               </div>
 
               <div className='section-body'>
                 <div className='btn-actions'>
-                  <a href='#' className='btn btn-blue'>
-                    Discover More
-                  </a>
+                  <Link
+                    to={section1.buttonLinkTo || ''}
+                    className='btn btn-blue'
+                  >
+                    {section1.buttonLabel}
+                  </Link>
                 </div>
               </div>
             </div>
@@ -40,53 +39,47 @@ export default ({ page }) => {
 
       <section className='section section-features'>
         <div className='row '>
-          <div className='col-md-4 d-flex'>
-            <a
-              href='#'
-              className='align-items-center d-flex justify-content-center'
-            >
-              <span>I find the best diamond</span>
-            </a>
-          </div>
-
-          <div className='col-md-4 d-flex'>
-            <a
-              href='#'
-              className='align-items-center d-flex justify-content-center'
-            >
-              <span>I help you choose the ring</span>
-            </a>
-          </div>
-
-          <div className='col-md-4 d-flex'>
-            <a
-              href='#'
-              className='align-items-center d-flex justify-content-center'
-            >
-              <span>I finance your investment</span>
-            </a>
-          </div>
+          {!!section2.featureCard &&
+            section2.featureCard.map(card => (
+              <div
+                key={card.title + card.image}
+                className='col-md-4 d-flex'
+                style={{
+                  backgroundImage: `url(${card.image})`
+                }}
+              >
+                <Link
+                  to={card.linkTo || ''}
+                  className='align-items-center d-flex justify-content-center'
+                >
+                  <span>{card.title}</span>
+                </Link>
+              </div>
+            ))}
         </div>
       </section>
 
-      <section className='section section-diamonds-alt text-center'>
+      <section
+        className='section section-diamonds-alt text-center'
+        style={{ backgroundImage: `url(${section3.backgroundImage})` }}
+      >
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
               <div className='section-head'>
-                <h2 className='mx-auto'>diamonds speak louder than words</h2>
+                <h2 className='mx-auto'>{section3.title}</h2>
 
-                <p>
-                  With a best price guarantee and life time warranty, let me
-                  take care of everything.
-                </p>
+                <p>{section3.subtitle}</p>
               </div>
 
               <div className='section-body'>
                 <div className='btn-actions'>
-                  <a href='#' className='btn btn-white'>
-                    Apply Now
-                  </a>
+                  <Link
+                    to={section3.buttonLinkTo || ''}
+                    className='btn btn-white'
+                  >
+                    {section3.buttonLabel}
+                  </Link>
                 </div>
               </div>
             </div>
@@ -98,32 +91,20 @@ export default ({ page }) => {
         <div className='container'>
           <div className='row push-right'>
             <div className='col-md-4'>
-              <h2>The Viral Cinema Proposal with $85k Diamond Ring</h2>
+              <h2>{section4.title}</h2>
 
               <div className='entry'>
-                <p>
-                  I'm the 5thC and I have the power to do things beyond your
-                  imagination. Take for example lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                  ea commodo consequat. Duis aute irure dolor in reprehenderit
-                  in voluptate vel
-                </p>
+                <Content source={section4.content} />
               </div>
             </div>
 
             <div className='col-md-8 text-center'>
-              <div className='video'>
-                <iframe
-                  width='700'
-                  height='505'
-                  src='https://www.youtube.com/embed/NpEaa2P7qZI'
-                  frameBorder='0'
-                  allow='autoplay; encrypted-media'
-                  allowFullScreen
+              {section4.videoEmbedCode && (
+                <div
+                  className='video embed-container'
+                  dangerouslySetInnerHTML={{ __html: section4.videoEmbedCode }}
                 />
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -186,34 +167,34 @@ export default ({ page }) => {
         </div>
       </section>
 
-      <section className='section section-contact'>
+      <section
+        className='section section-contact'
+        style={{ backgroundImage: `url(${section5.backgroundImage})` }}
+      >
         <div className='container'>
           <div className='row'>
             <div className='col-md-6 offset-md-6'>
               <div className='section-head'>
-                <h2>contact me</h2>
+                <h2>{section5.title}</h2>
               </div>
 
               <div className='section-body'>
-                <h3>STILL NOT SURE WHAT TO GET?</h3>
-
-                <p>
-                  Don't fret, I'm here to help. Contact me directly, right now,
-                  and I'll take care of it.
-                </p>
+                <Content source={section5.content} />
               </div>
 
               <div className='btn-actions'>
-                <a href='#' className='btn btn-white'>
+                <Link to='/contact/' className='btn btn-white'>
                   Contact me
-                </a>
+                </Link>
               </div>
 
-              <div className='btn-actions'>
-                <a href='#' className='btn btn-white'>
-                  Apply for Finance
-                </a>
-              </div>
+              {section5.buttonLinkTo && (
+                <div className='btn-actions'>
+                  <Link to={section5.buttonLinkTo} className='btn btn-white'>
+                    {section5.buttonLabel}
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>

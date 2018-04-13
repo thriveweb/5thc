@@ -78,6 +78,7 @@ collections: # A list of collections the CMS should be able to edit
             fields:
               - {label: Title, name: title, widget: string, required: false}
               - {label: Subtitle, name: subtitle, widget: string, required: false}
+              - {label: Background Image, name: backgroundImage, widget: image, required: false}
               - {label: Button Label, name: buttonLabel, widget: string, required: false}
               - {label: Button Link To, name: buttonLinkTo, widget: string, required: false}
           - label: Video Section

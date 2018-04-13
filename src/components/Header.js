@@ -12,9 +12,12 @@ class Header extends React.Component {
   }
 
   render () {
-    const { title, intro, className = '' } = this.props
+    const { title, intro = {}, className = '' } = this.props
     return (
-      <header className={`header ${className}`}>
+      <header
+        className={`header ${className}`}
+        style={{ backgroundImage: `url(${intro.backgroundImage})` }}
+      >
         <div className='overlay' />
 
         <Nav />
