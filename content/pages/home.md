@@ -50,5 +50,9 @@ section5:
     Don't fret, I'm here to help. Contact me directly, right now, and I'll take
     care of it.
   title: Contact Me
+section6:
+  logos:
+    - {}
+  title: As Featured In
 ---
 
