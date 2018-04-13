@@ -1,13 +1,15 @@
 ---
 title: Contact Me
+introSection:
+  buttonLinkTo: Email me
+  content: >-
+    The purpose of your brochure may differ from business to business. Some are
+    designed to display services, whereas others are focused on selling an idea.
+    No matter what the focus of the brochure is, it needs to be readable,
+    intriguing, and functional. The brochure must grab a viewer.
+  email: hello@the5thc.com.au
+  phone: 5555 555 555
+  phoneLabel: Call me
+  title: CONTACT ME NOW. URGENTLY. I MEAN IT.
 ---
 
-# Example contact form
-
-This form is setup to use Netlify's form handling:
-
-* the form action is set to the current absolute url: `action: '/contact/'`
-* a name attribute is sent with the form's data `'form-name': 'Contact'`
-* netlify data attributes are added to the form `data-netlify data-netlify-honeypot`
-
-Find out more in the [Netlify Docs](https://www.netlify.com/docs/form-handling/).
