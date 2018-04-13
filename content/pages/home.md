@@ -28,5 +28,26 @@ section3:
     With a best price guarantee and life time warranty, let me take care of
     everything.
   title: Diamonds speak louder than words
+section4:
+  content: >-
+    I'm the 5thC and I have the power to do things beyond your imagination. Take
+    for example lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate vel
+  title: THE VIRAL CINEMA PROPOSAL WITH $85K DIAMOND RING
+  videoEmbedCode: >-
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/dz5vG1JHtQI" frameborder="0"
+    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+section5:
+  content: >-
+    STILL NOT SURE WHAT TO GET?
+
+
+    Don't fret, I'm here to help. Contact me directly, right now, and I'll take
+    care of it.
+  linkTo: /
+  title: Contact Me
 ---
 
