@@ -15,7 +15,8 @@ section1:
   title: I AM EVERYTHING YOU NEED TO KNOW ABOUT DIAMONDS
 section2:
   featureCard:
-    - linkTo: /the-process
+    - image: /images/uploads/diamond-gem-cubic-zirconia-jewel-68740.png
+      linkTo: /the-process
       title: I find the best diamond
     - linkTo: /the-process
       title: I help you choose the ring
