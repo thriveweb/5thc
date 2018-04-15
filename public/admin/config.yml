@@ -177,6 +177,7 @@ collections: # A list of collections the CMS should be able to edit
               - {label: Phone, name: phone, widget: string, required: false}
               - {label: Email Label, name: emailLabel, widget: string, required: false}
               - {label: Email, name: email, widget: string, required: false}
+          - {label: Form Content, name: formContent, widget: string, required: false}
 
 
 

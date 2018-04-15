@@ -50,10 +50,7 @@ export default ({ page, siteTitle }) => (
         <div className='row'>
           <div className='col-md-12'>
             <div className='section-head'>
-              <h4 className='text-center mx-auto'>
-                Fill out the form and qui dolorem ipsum quia dolor sit amet,
-                consectetur, adipisci velit, sed quia non numquam
-              </h4>
+              <h4 className='text-center mx-auto'>{page.formContent}</h4>
             </div>
 
             <div className='section-body'>
