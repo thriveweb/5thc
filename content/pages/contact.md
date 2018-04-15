@@ -12,7 +12,7 @@ introSection:
   phoneLabel: Call me
   title: CONTACT ME NOW. URGENTLY. I MEAN IT.
 formContent: >-
-  #### Fill out the form and qui dolorem ipsum quia dolor sit amet, consectetur,
+  Fill out the form and qui dolorem ipsum quia dolor sit amet, consectetur,
   adipisci velit, sed quia non numquam
 ---
 
