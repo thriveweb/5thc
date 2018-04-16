@@ -2,7 +2,7 @@
 title: Hello World!
 section:
   - buttonLabel: Enquire Now
-    buttonLinkTo: /
+    buttonLinkTo: ''
     content: >-
       At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
       praesentium voluptatum deleniti atque corrupti quos dolores et quas
@@ -13,7 +13,7 @@ section:
     image: /images/uploads/process-1.jpg
     title: I find the best diamond
   - buttonLabel: Enquire Now
-    buttonLinkTo: /
+    buttonLinkTo: ''
     content: >-
       Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
       deleniti atque corrupti quos dolores et quas molestias excepturi sint
@@ -24,7 +24,7 @@ section:
     image: /images/uploads/process-2.jpg
     title: I help you choose the ring
   - buttonLabel: Apply for Finance
-    buttonLinkTo: /
+    buttonLinkTo: ''
     content: >-
       At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
       praesentium voluptatum deleniti atque corrupti quos dolores et quas
