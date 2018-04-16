@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 
 import Content from '../components/Content'
 import InstagramFeed from '../components/InstagramFeed'
+import PromotionsList from '../components/PromotionsList'
 
-export default ({ page, socialMediaSettings }) => {
+export default ({ page, socialMediaSettings, promotions }) => {
   const { section1, section2, section3, section4, section6 } = page
   return (
     <main role='main' className='main'>
@@ -111,62 +112,7 @@ export default ({ page, socialMediaSettings }) => {
         </div>
       </section>
 
-      <section className='section section-promotions'>
-        <div className='row'>
-          <div className='col-md-4 d-flex text-center'>
-            <div className='section-content align-items-center d-flex justify-content-center'>
-              <a href='#'>
-                <span>Say i Love you with diamonds for only $49/ week</span>
-              </a>
-
-              <div className='btn-actions'>
-                <a href='#' className='btn btn-white'>
-                  More
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className='col-md-4 d-flex text-center'>
-            <div className='section-content align-items-center d-flex justify-content-center'>
-              <a href='#'>
-                <span>
-                  If you are confused about diamonds, don't fret. Speak to me -
-                  the 5th C.
-                </span>
-              </a>
-
-              <div className='btn-actions'>
-                <a href='#' className='btn btn-white'>
-                  More
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className='col-md-4 d-flex text-center'>
-            <div className='section-content align-items-center d-flex justify-content-center'>
-              <a href='#'>
-                <span>
-                  Last minute Valentine's Day gift idea - Buy her a diamond.
-                </span>
-              </a>
-
-              <div className='btn-actions'>
-                <a href='#' className='btn btn-white'>
-                  More
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className='section-foot'>
-            <div className='col-md-12 text-center'>
-              <a href='#'>See all promotions</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {promotions && <PromotionsList promotions={promotions} />}
 
       <div className='section section section-featured-in'>
         <div className='row'>

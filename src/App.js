@@ -133,6 +133,7 @@ class App extends Component {
                     <Home
                       page={homepage}
                       socialMediaSettings={socialMediaSettings}
+                      promotions={promotions}
                       {...props}
                     />
                   </RouteWithHeader>
