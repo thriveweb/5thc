@@ -15,7 +15,7 @@ formContent: >-
   Fill out the form and qui dolorem ipsum quia dolor sit amet, consectetur,
   adipisci velit, sed quia non numquam
 diamondShapes: >-
-  Round, Princess Cut, Oval, Marquise, Pear, Cushion, Emerald Cut, Asscher Cut,
-  Radiant Cut, Heart
+  Round | Princess Cut | Oval | Marquise | Pear | Cushion | Emerald Cut |
+  Asscher Cut | Radiant Cut | Heart
 ---
 
