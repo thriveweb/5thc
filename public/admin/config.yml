@@ -231,4 +231,4 @@ collections: # A list of collections the CMS should be able to edit
         name: "social-settings"
         fields:
           - {label: Instagram URL, name: instagram, widget: string, required: false}
-          - {label: Facebook URL, name: facebok, widget: string, required: false}
+          - {label: Facebook URL, name: facebook, widget: string, required: false}
