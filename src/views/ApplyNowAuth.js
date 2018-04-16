@@ -1,10 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Content from '../components/Content'
-
 export default ({ page }) => {
-  const { title, subtitle } = page
   return (
     <main role='main' className='main'>
       <Helmet>

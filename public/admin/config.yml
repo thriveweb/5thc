@@ -180,6 +180,14 @@ collections: # A list of collections the CMS should be able to edit
           - {label: Form Content, name: formContent, widget: string, required: false}
           - {label: Diamond Shapes (form option), name: diamondShapes, widget: string, required: false}
 
+      - file: "content/pages/apply-now.md"
+        label: "Apply Now Page"
+        name: "apply-now-page"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Employment Options (form option), name: employmentOptions, widget: string, required: false}
+          - {label: Monthly Income Options (form option), name: incomeOptions, widget: string, required: false}
+
 
 
   - name: posts

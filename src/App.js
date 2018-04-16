@@ -15,7 +15,6 @@ import Footer from './components/Footer'
 
 import About from './views/About'
 import ApplyNow from './views/ApplyNow'
-import ApplyNowAuth from './views/ApplyNowAuth'
 import Contact from './views/Contact'
 import Home from './views/Home'
 import Promotions from './views/Promotions'
@@ -154,18 +153,6 @@ class App extends Component {
                 return (
                   <RouteWithHeader title={page.title} className='header-about'>
                     <ApplyNow page={page} {...props} />
-                  </RouteWithHeader>
-                )
-              }}
-            />
-            <Route
-              path='/apply-now-auth/'
-              exact
-              render={props => {
-                const page = this.getDocument('pages', 'apply-now-auth')
-                return (
-                  <RouteWithHeader title={page.title} className='header-about'>
-                    <ApplyNowAuth page={page} {...props} />
                   </RouteWithHeader>
                 )
               }}

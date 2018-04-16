@@ -136,6 +136,7 @@ class Form extends React.Component {
               <textarea
                 className='form-control'
                 id='exampleTextarea'
+                name='message'
                 rows='3'
               />
             </div>

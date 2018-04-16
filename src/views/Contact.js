@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 
 import ContactForm from '../components/ContactForm'
 import Content from '../components/Content'
+import splitBy from '../util/splitBy'
 
 export default ({ page, siteTitle }) => (
   <main role='main' className='main'>
@@ -57,9 +58,7 @@ export default ({ page, siteTitle }) => (
               <div className='form-contact mx-auto'>
                 <ContactForm
                   name='Contact Form'
-                  shapes={page.diamondShapes
-                    .split(',')
-                    .map(shape => shape.trim())}
+                  shapes={splitBy(page.diamondShapes, '|')}
                 />
               </div>
             </div>
