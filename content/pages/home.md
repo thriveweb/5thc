@@ -48,7 +48,7 @@ section4:
 section5:
   backgroundImage: /images/uploads/moss-334062.jpg
   buttonLabel: Apply for Finance
-  buttonLinkTo: /
+  buttonLinkTo: /apply-now/
   content: >-
     ### STILL NOT SURE WHAT TO GET?
 
