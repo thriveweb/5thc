@@ -203,6 +203,7 @@ collections: # A list of collections the CMS should be able to edit
             fields:
               - {label: Title, name: title, widget: string, required: false}
               - {label: Content, name: content, widget: markdown, required: false}
+
   - name: "settings"
     label: "Settings"
     delete: false # Prevent users from deleting documents in this collection
@@ -224,6 +225,7 @@ collections: # A list of collections the CMS should be able to edit
               - {label: Twitter Site Account, name: twitterSiteAccount, widget: string, required: false}
               - {label: Twitter Creator Account, name: twitterCreatorAccount, widget: string, required: false}
           - {label: Header Meta / Scripts, name: headerScripts, widget: text, required: false}
+
       - file: "content/settings/social.yml"
         label: "Social Media Settings"
         name: "social-settings"
