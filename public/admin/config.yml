@@ -224,3 +224,9 @@ collections: # A list of collections the CMS should be able to edit
               - {label: Twitter Site Account, name: twitterSiteAccount, widget: string, required: false}
               - {label: Twitter Creator Account, name: twitterCreatorAccount, widget: string, required: false}
           - {label: Header Meta / Scripts, name: headerScripts, widget: text, required: false}
+      - file: "content/settings/social.yml"
+        label: "Social Media Settings"
+        name: "social-settings"
+        fields:
+          - {label: Instagram URL, name: instagram, widget: string}
+          

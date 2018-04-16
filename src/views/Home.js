@@ -3,9 +3,10 @@ import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
 
 import Content from '../components/Content'
+import InstagramFeed from '../components/InstagramFeed'
 
-export default ({ page }) => {
-  const { section1, section2, section3, section4, section5, section6 } = page
+export default ({ page, socialMediaSettings }) => {
+  const { section1, section2, section3, section4, section6 } = page
   return (
     <main role='main' className='main'>
       <Helmet>
@@ -189,33 +190,11 @@ export default ({ page }) => {
             </div>
           </div>
 
-          <div className='section-body'>
-            <div className='row'>
-              <div className='col-md-2'>
-                <img src='/css/images/ft-1.png' className='img-fluid' alt='' />
-              </div>
-
-              <div className='col-md-2'>
-                <img src='/css/images/ft-2.png' className='img-fluid' alt='' />
-              </div>
-
-              <div className='col-md-2'>
-                <img src='/css/images/ft-3.png' className='img-fluid' alt='' />
-              </div>
-
-              <div className='col-md-2'>
-                <img src='/css/images/ft-4.png' className='img-fluid' alt='' />
-              </div>
-
-              <div className='col-md-2'>
-                <img src='/css/images/ft-5.png' className='img-fluid' alt='' />
-              </div>
-
-              <div className='col-md-2'>
-                <img src='/css/images/ft-6.png' className='img-fluid' alt='' />
-              </div>
+          {socialMediaSettings.instagram && (
+            <div className='section-body'>
+              <InstagramFeed instagramUrl={socialMediaSettings.instagram} />
             </div>
-          </div>
+          )}
         </div>
       </div>
     </main>

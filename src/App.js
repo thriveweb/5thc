@@ -72,6 +72,7 @@ class App extends Component {
       socialMediaCard,
       headerScripts
     } = globalSettings
+    const socialMediaSettings = this.getDocument('settings', 'social')
     const homepage = this.getDocument('pages', 'home')
     const promotions = this.getDocuments('promotions')
 
@@ -129,7 +130,11 @@ class App extends Component {
               render={props => {
                 return (
                   <RouteWithHeader intro={homepage.header} showContactSection>
-                    <Home page={homepage} {...props} />
+                    <Home
+                      page={homepage}
+                      socialMediaSettings={socialMediaSettings}
+                      {...props}
+                    />
                   </RouteWithHeader>
                 )
               }}
