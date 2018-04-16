@@ -34,7 +34,7 @@ export default ({ page }) => {
                   <div className='box-foot'>
                     <div className='btn-actions'>
                       <Link
-                        to={section.buttonLinkTo || ''}
+                        to={section.buttonLinkTo || '/contact/'}
                         className='btn btn-white'
                       >
                         {section.buttonLabel}

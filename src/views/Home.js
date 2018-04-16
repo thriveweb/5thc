@@ -177,8 +177,11 @@ export default ({ page }) => {
             <div className='section-logos'>
               <div className='row'>
                 {!!section6.logos &&
-                  section6.logos.map(logo => (
-                    <div className='col-md-4 text-center  d-flex justify-content-center'>
+                  section6.logos.map((logo, index) => (
+                    <div
+                      key={index + logo}
+                      className='col-md-4 text-center  d-flex justify-content-center'
+                    >
                       <img src={logo.image} alt='' />
                     </div>
                   ))}
