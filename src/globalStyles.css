@@ -17,3 +17,13 @@
 .taRight {
   text-align: right;
 }
+
+.fadeInUp {
+  transform: translateY(10px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+.fadeInUp.aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}

@@ -30,7 +30,7 @@ class Header extends React.Component {
 
         {intro && (
           <div className='header-intro'>
-            <div className='container'>
+            <div className='container' data-aos='fadeInUp'>
               <div className='row'>
                 <div className='col-md-12'>
                   <div className='header-intro-head'>
