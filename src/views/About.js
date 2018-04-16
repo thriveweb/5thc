@@ -2,10 +2,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
 
-import LazyImage from '../components/LazyImage'
+import FollowSection from '../components/FollowSection'
 import Content from '../components/Content.js'
 
-export default ({ page }) => (
+export default ({ page, socialMediaSettings }) => (
   <div className='About'>
     <Helmet>
       <title>{page.title}</title>
@@ -100,54 +100,10 @@ export default ({ page }) => (
         </div>
       </section>
 
-      <section className='section section-follow'>
-        <div className='row'>
-          <div className='col-md-6'>
-            <div className='row'>
-              <div className='col-sm-6'>
-                <img src='/css/images/fl-1.png' className='img-fluid' alt='' />
-              </div>
-
-              <div className='col-sm-6'>
-                <img src='/css/images/fl-2.png' className='img-fluid' alt='' />
-              </div>
-            </div>
-
-            <div className='row'>
-              <div className='col-sm-6'>
-                <img src='/css/images/fl-3.png' className='img-fluid' alt='' />
-              </div>
-
-              <div className='col-sm-6'>
-                <img src='/css/images/fl-4.png' className='img-fluid' alt='' />
-              </div>
-            </div>
-          </div>
-
-          <div className='col-md-6 d-flex align-items-center justify-content-center flex-column'>
-            <div className='section-head'>
-              <h2 className='text-center mx-auto'>
-                follow me on <br />
-                FaceBook &amp; Instagram
-              </h2>
-            </div>
-
-            <div className='section-body'>
-              <div className='btn-actions'>
-                <a href='#' className='btn btn-blue'>
-                  Facebook
-                </a>
-              </div>
-
-              <div className='btn-actions'>
-                <a href='#' className='btn btn-blue'>
-                  Instagram
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FollowSection
+        instagramUrl={socialMediaSettings.instagram}
+        facebookUrl={socialMediaSettings.facebook}
+      />
     </main>
   </div>
 )

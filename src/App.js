@@ -147,7 +147,11 @@ class App extends Component {
                 const page = this.getDocument('pages', 'about')
                 return (
                   <RouteWithHeader title={page.title} className='header-about'>
-                    <About page={page} {...props} />
+                    <About
+                      page={page}
+                      socialMediaSettings={socialMediaSettings}
+                      {...props}
+                    />
                   </RouteWithHeader>
                 )
               }}

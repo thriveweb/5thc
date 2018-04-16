@@ -1,0 +1,14 @@
+.FollowSection .InstagramFeed {
+  background: #1b1c25;
+}
+
+.FollowSection .InstagramFeed--EmptyPost {
+  opacity: 0.5;
+  width: 50%;
+  padding-bottom: 50%;
+  margin: 0;
+}
+
+.FollowSection .InstagramFeed--EmptyPost .BackgroundImage {
+  filter: grayscale(100%);
+}
