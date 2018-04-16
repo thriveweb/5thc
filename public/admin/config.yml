@@ -8,28 +8,6 @@ media_folder: "public/images/uploads" # Media files will be stored in the repo u
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
 collections: # A list of collections the CMS should be able to edit
-  - name: "settings"
-    label: "Settings"
-    delete: false # Prevent users from deleting documents in this collection
-    editor:
-      preview: false
-    files:
-      - file: "content/settings/global.yml"
-        label: "Global Settings"
-        name: "global-settings"
-        fields:
-          - {label: Site Title, name: siteTitle, widget: string}
-          - {label: Site Url, name: siteUrl, widget: string, required: false}
-          - {label: Site Description, name: siteDescription, widget: text, required: false}
-          - label: Social Media Card
-            name: socialMediaCard
-            widget: object
-            fields:
-              - {label: Image, name: image, widget: image, required: false}
-              - {label: Twitter Site Account, name: twitterSiteAccount, widget: string, required: false}
-              - {label: Twitter Creator Account, name: twitterCreatorAccount, widget: string, required: false}
-          - {label: Header Meta / Scripts, name: headerScripts, widget: text, required: false}
-
   - name: "pages"
     label: "Page"
     delete: false # Prevent users from deleting documents in this collection
@@ -161,6 +139,14 @@ collections: # A list of collections the CMS should be able to edit
               - {label: Button LinkTo, name: buttonLinkTo, widget: string, required: false}
               - {label: Image, name: image, widget: image, required: false}
 
+      - file: "content/pages/promotions.md"
+        label: "Promotions Page"
+        name: "promotions-page"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Intro Title, name: introTitle, widget: string}
+          - {label: Intro Content, name: introContent, widget: text}
+
       - file: "content/pages/contact.md"
         label: "Contact Page"
         name: "contact-page"
@@ -188,13 +174,11 @@ collections: # A list of collections the CMS should be able to edit
           - {label: Employment Options (form option), name: employmentOptions, widget: string, required: false}
           - {label: Monthly Income Options (form option), name: incomeOptions, widget: string, required: false}
 
-
-
-  - name: posts
-    label: Post
+  - name: promotions
+    label: Promotion
     editor:
       preview: false
-    folder: content/posts
+    folder: content/promotions
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
@@ -204,27 +188,39 @@ collections: # A list of collections the CMS should be able to edit
         widget: 'select'
         options: ["Published", "Featured", "Draft"]
         default: 'Published'
-      - label: "Categories"
-        name: "categories"
-        widget: "list"
-        fields:
-          - label: "Category"
-            name: "category"
-            widget: "relation"
-            collection: "postCategories"
-            searchFields: ["title"]
-            valueField: "title"
       - {label: Date / Order, name: date, widget: date}
-      - {label: Post Featured Image, name: postFeaturedImage, widget: image, required: false}
-      - {label: Excerpt, name: excerpt, widget: text}
+      - {label: Featured Image, name: featuredImage, widget: image, required: false}
       - {label: Content, name: body, widget: markdown}
-
-  - name: postCategories
-    label: Post Category
+      - {label: Content, name: body, widget: markdown}
+      - label: 'Accordion Section'
+        name: 'accordionSection'
+        widget: 'object'
+        fields:
+          - {label: Title, name: title, widget: string, required: false}
+          - label: 'Accordion'
+            name: 'accordion'
+            widget: 'list'
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Content, name: content, widget: markdown, required: false}
+  - name: "settings"
+    label: "Settings"
+    delete: false # Prevent users from deleting documents in this collection
     editor:
       preview: false
-    folder: content/postCategories
-    slug: "{{slug}}"
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: Title, name: title, widget: string}
+    files:
+      - file: "content/settings/global.yml"
+        label: "Global Settings"
+        name: "global-settings"
+        fields:
+          - {label: Site Title, name: siteTitle, widget: string}
+          - {label: Site Url, name: siteUrl, widget: string, required: false}
+          - {label: Site Description, name: siteDescription, widget: text, required: false}
+          - label: Social Media Card
+            name: socialMediaCard
+            widget: object
+            fields:
+              - {label: Image, name: image, widget: image, required: false}
+              - {label: Twitter Site Account, name: twitterSiteAccount, widget: string, required: false}
+              - {label: Twitter Creator Account, name: twitterCreatorAccount, widget: string, required: false}
+          - {label: Header Meta / Scripts, name: headerScripts, widget: text, required: false}

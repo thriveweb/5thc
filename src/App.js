@@ -73,6 +73,7 @@ class App extends Component {
       headerScripts
     } = globalSettings
     const homepage = this.getDocument('pages', 'home')
+    const promotions = this.getDocuments('promotions')
 
     const RouteWithHeader = ({
       children,
@@ -175,23 +176,43 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'promotions')
                 return (
-                  <RouteWithHeader title={page.title} className='header-about'>
-                    <Promotions page={page} {...props} />
+                  <RouteWithHeader
+                    title={page.title}
+                    className='header-about'
+                    showContactSection
+                  >
+                    <Promotions
+                      page={page}
+                      promotions={promotions}
+                      {...props}
+                    />
                   </RouteWithHeader>
                 )
               }}
             />
             <Route
-              path='/promotions-single/'
+              path='/promotions/:slug'
               exact
               render={props => {
-                const page = this.getDocument('pages', 'promotions-single')
+                const slug = _kebabCase(props.match.params.slug)
+                const promotion = promotions.find(
+                  promotion => _kebabCase(promotion.title) === slug
+                )
                 return (
-                  <RouteWithHeader className='header-single-article'>
-                    <PromotionsSingle page={page} {...props} />
+                  <RouteWithHeader
+                    title={promotion.title}
+                    className='header-about'
+                    showContactSection
+                  >
+                    <PromotionsSingle
+                      promotion={promotion}
+                      promotions={promotions}
+                      {...props}
+                    />
                   </RouteWithHeader>
                 )
               }}
+            />{' '}
             />
             <Route
               path='/the-process/'
@@ -209,10 +230,12 @@ class App extends Component {
                 )
               }}
             />
-
             <Route
               render={props => (
-                <RouteWithHeader title='404 – Page Not Found'>
+                <RouteWithHeader
+                  title='404 – Page Not Found'
+                  showContactSection
+                >
                   <NoMatch siteUrl={siteUrl} />
                 </RouteWithHeader>
               )}
