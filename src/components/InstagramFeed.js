@@ -32,7 +32,7 @@ export default class InstagramFeed extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          posts: data ? data.items : []
+          posts: data && data.items ? data.items : []
         })
       })
       .catch(err => console.error(err))
