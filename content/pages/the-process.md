@@ -1,5 +1,5 @@
 ---
-title: Hello World!
+title: The Process!
 section:
   - buttonLabel: Enquire Now
     buttonLinkTo: ''
