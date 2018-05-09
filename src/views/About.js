@@ -100,10 +100,12 @@ export default ({ page, socialMediaSettings }) => (
         </div>
       </section>
 
-      <FollowSection
-        instagramUrl={socialMediaSettings.instagram}
-        facebookUrl={socialMediaSettings.facebook}
-      />
+      {socialMediaSettings && (
+        <FollowSection
+          instagramUrl={socialMediaSettings.instagram}
+          facebookUrl={socialMediaSettings.facebook}
+        />
+      )}
     </main>
   </div>
 )

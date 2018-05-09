@@ -28,8 +28,7 @@ const getDocument = (collection, name) =>
   data[collection] && data[collection].filter(page => page.name === name)[0]
 const getDocuments = collection => data[collection]
 
-const globalSettings = getDocument('settings', 'global')
-const socialMediaSettings = globalSettings.socialMediaSettings
+const socialMediaSettings = getDocument('settings', 'social')
 const promotions = getDocuments('promotions')
 
 const RouteWrap = props => (
@@ -58,7 +57,7 @@ CMS.registerPreviewTemplate('about-page', ({ entry }) => {
   const page = entry.toJS().data
   return (
     <RouteWrap title={page.title} className='header-about'>
-      <About page={page} socialMediaSettings={socialMediaSettings} />
+      <About page={page} />
     </RouteWrap>
   )
 })
