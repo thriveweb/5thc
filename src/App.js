@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Helmet from 'react-helmet'
-import _merge from 'lodash/merge'
-import _findIndex from 'lodash/findIndex'
 import _kebabCase from 'lodash/kebabCase'
 
 import ScrollToTop from './components/ScrollToTop'
@@ -22,39 +20,31 @@ import PromotionsSingle from './views/PromotionsSingle'
 import TheProcess from './views/TheProcess'
 import NoMatch from './views/NoMatch'
 
-import AOS from './components/AOS'
 import data from './data.json'
 import { documentHasTerm, getCollectionTerms } from './util/collection'
+
+export const RouteWithHeader = ({
+  children,
+  title,
+  intro,
+  className,
+  showContactSection,
+  contactSection
+}) => (
+  <React.Fragment>
+    <Header title={title} className={className} intro={intro} />
+    {children}
+    <Footer
+      showContactSection={showContactSection}
+      contactSection={contactSection}
+    />
+  </React.Fragment>
+)
 
 class App extends Component {
   state = {
     data,
     loading: false
-  }
-
-  componentDidMount = () => {
-    this.fetchPreviewContent()
-  }
-
-  fetchPreviewContent = () => {
-    if (
-      !window.netlifyIdentity ||
-      !window.netlifyIdentity.currentUser() ||
-      process.env.NODE_ENV === 'development'
-    ) {
-      return false
-    }
-    import('./util/fetch-content').then(({ fetchContent }) => {
-      this.setState({ loading: true })
-      fetchContent()
-        .then(newData => {
-          this.setState(prevState => {
-            const data = _merge(prevState.data, newData)
-            return { data, loading: false }
-          })
-        })
-        .catch(() => this.setState({ loading: false }))
-    })
   }
 
   getDocument = (collection, name) =>
@@ -76,28 +66,14 @@ class App extends Component {
     const homepage = this.getDocument('pages', 'home')
     const promotions = this.getDocuments('promotions')
 
-    const RouteWithHeader = ({
-      children,
-      title,
-      intro,
-      className,
-      showContactSection
-    }) => (
-      <React.Fragment>
-        <Header title={title} className={className} intro={intro} />
-        {children}
-        <Footer
-          showContactSection={showContactSection}
-          contactSection={homepage.section5}
-        />
-      </React.Fragment>
+    const RouteWrap = props => (
+      <RouteWithHeader contactSection={homepage.section5} {...props} />
     )
 
     return (
       <Router>
         <div className='React-Wrap wrapper'>
           {this.state.loading && <Spinner />}
-          <AOS options={{ duration: 250 }} />
           <ScrollToTop />
           <ServiceWorkerNotifications reloadOnUpdate />
 
@@ -129,14 +105,14 @@ class App extends Component {
               exact
               render={props => {
                 return (
-                  <RouteWithHeader intro={homepage.header} showContactSection>
+                  <RouteWrap intro={homepage.header} showContactSection>
                     <Home
                       page={homepage}
                       socialMediaSettings={socialMediaSettings}
                       promotions={promotions}
                       {...props}
                     />
-                  </RouteWithHeader>
+                  </RouteWrap>
                 )
               }}
             />
@@ -146,13 +122,13 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'about')
                 return (
-                  <RouteWithHeader title={page.title} className='header-about'>
+                  <RouteWrap title={page.title} className='header-about'>
                     <About
                       page={page}
                       socialMediaSettings={socialMediaSettings}
                       {...props}
                     />
-                  </RouteWithHeader>
+                  </RouteWrap>
                 )
               }}
             />
@@ -162,9 +138,9 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'apply-now')
                 return (
-                  <RouteWithHeader title={page.title} className='header-about'>
+                  <RouteWrap title={page.title} className='header-about'>
                     <ApplyNow page={page} {...props} />
-                  </RouteWithHeader>
+                  </RouteWrap>
                 )
               }}
             />
@@ -174,9 +150,9 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'contact')
                 return (
-                  <RouteWithHeader title={page.title} className='header-about'>
+                  <RouteWrap title={page.title} className='header-about'>
                     <Contact page={page} {...props} />
-                  </RouteWithHeader>
+                  </RouteWrap>
                 )
               }}
             />
@@ -186,7 +162,7 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'promotions')
                 return (
-                  <RouteWithHeader
+                  <RouteWrap
                     title={page.title}
                     className='header-about'
                     showContactSection
@@ -196,7 +172,7 @@ class App extends Component {
                       promotions={promotions}
                       {...props}
                     />
-                  </RouteWithHeader>
+                  </RouteWrap>
                 )
               }}
             />
@@ -209,7 +185,7 @@ class App extends Component {
                   promotion => _kebabCase(promotion.title) === slug
                 )
                 return (
-                  <RouteWithHeader
+                  <RouteWrap
                     title={promotion.title}
                     className='header-about'
                     showContactSection
@@ -219,10 +195,9 @@ class App extends Component {
                       promotions={promotions}
                       {...props}
                     />
-                  </RouteWithHeader>
+                  </RouteWrap>
                 )
               }}
-            />{' '}
             />
             <Route
               path='/the-process/'
@@ -230,24 +205,21 @@ class App extends Component {
               render={props => {
                 const page = this.getDocument('pages', 'the-process')
                 return (
-                  <RouteWithHeader
+                  <RouteWrap
                     title={page.title}
                     className='header-about'
                     showContactSection
                   >
                     <TheProcess page={page} {...props} />
-                  </RouteWithHeader>
+                  </RouteWrap>
                 )
               }}
             />
             <Route
               render={props => (
-                <RouteWithHeader
-                  title='404 – Page Not Found'
-                  showContactSection
-                >
+                <RouteWrap title='404 – Page Not Found' showContactSection>
                   <NoMatch siteUrl={siteUrl} />
-                </RouteWithHeader>
+                </RouteWrap>
               )}
             />
           </Switch>

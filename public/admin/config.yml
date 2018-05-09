@@ -12,7 +12,7 @@ collections: # A list of collections the CMS should be able to edit
     label: "Page"
     delete: false # Prevent users from deleting documents in this collection
     editor:
-      preview: false
+      preview: true
     files:
       - file: "content/pages/home.md"
         label: "Home Page"
@@ -67,16 +67,6 @@ collections: # A list of collections the CMS should be able to edit
               - {label: Title, name: title, widget: string, required: false}
               - {label: Content, name: content, widget: markdown, required: false}
               - {label: Video Embed Code, name: videoEmbedCode, widget: text, required: false}
-          - label: Contact Section
-            name: section5
-            widget: object
-            required: false
-            fields:
-              - {label: Title, name: title, widget: string, required: false}
-              - {label: Content, name: content, widget: markdown, required: false}
-              - {label: Background Image, name: backgroundImage, widget: image, required: false}
-              - {label: Button Label, name: buttonLabel, widget: string, required: false}
-              - {label: Button Link To, name: buttonLinkTo, widget: string, required: false}
           - label: Featured Section
             name: section6
             widget: object
@@ -88,6 +78,17 @@ collections: # A list of collections the CMS should be able to edit
                 widget: list
                 fields:
                   - {label: Image, name: image, widget: image, required: false}
+          - label: Contact Section
+            name: section5
+            widget: object
+            required: false
+            fields:
+              - {label: Title, name: title, widget: string, required: false}
+              - {label: Content, name: content, widget: markdown, required: false}
+              - {label: Background Image, name: backgroundImage, widget: image, required: false}
+              - {label: Button Label, name: buttonLabel, widget: string, required: false}
+              - {label: Button Link To, name: buttonLinkTo, widget: string, required: false}
+
 
       - file: "content/pages/about.md"
         label: "About Page"

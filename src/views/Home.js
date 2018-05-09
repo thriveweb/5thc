@@ -136,11 +136,12 @@ export default ({ page, socialMediaSettings, promotions }) => {
             </div>
           </div>
 
-          {socialMediaSettings.instagram && (
-            <div className='section-body'>
-              <InstagramFeed instagramUrl={socialMediaSettings.instagram} />
-            </div>
-          )}
+          {socialMediaSettings &&
+            socialMediaSettings.instagram && (
+              <div className='section-body'>
+                <InstagramFeed instagramUrl={socialMediaSettings.instagram} />
+              </div>
+            )}
         </div>
       </div>
     </main>
