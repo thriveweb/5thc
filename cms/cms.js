@@ -3,13 +3,14 @@ import React from 'react'
 import '../src/globalStyles.css'
 import data from '../src/data.json'
 import { RouteWithHeader } from '../src/App'
-import AOS from '../src/components/AOS'
+
 import Home from '../src/views/Home'
 import About from '../src/views/About'
 import TheProcess from '../src/views/TheProcess'
 import Promotions from '../src/views/Promotions'
 import ApplyNow from '../src/views/ApplyNow'
 import Contact from '../src/views/Contact'
+import PromotionsSingle from '../src/views/PromotionsSingle'
 
 const CMS = window.CMS
 CMS.registerPreviewStyle(
@@ -33,7 +34,6 @@ const promotions = getDocuments('promotions')
 
 const RouteWrap = props => (
   <React.Fragment>
-    <AOS />
     <RouteWithHeader {...props} />
   </React.Fragment>
 )
@@ -98,24 +98,14 @@ CMS.registerPreviewTemplate('apply-now-page', ({ entry }) => {
   )
 })
 
-//   const slug = _kebabCase(props.match.params.slug)
-//   const promotion = promotions.find(
-//     promotion => _kebabCase(promotion.title) === slug
-//   )
-//   return (
-//     <RouteWrap
-//       title={promotion.title}
-//       className='header-about'
-//       showContactSection
-//     >
-//       <PromotionsSingle
-//         promotion={promotion}
-//         promotions={promotions}
-//         {...props}
-//       />
-//     </RouteWrap>
-//   )
-// }}
+CMS.registerPreviewTemplate('promotions', ({ entry }) => {
+  const promotion = entry.toJS().data
+  return (
+    <RouteWrap title={promotion.title} className='header-about'>
+      <PromotionsSingle promotion={promotion} />
+    </RouteWrap>
+  )
+})
 
 window.netlifyIdentity.on('logout', function () {
   document.location.href = '/'

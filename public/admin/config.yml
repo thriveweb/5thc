@@ -178,7 +178,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: promotions
     label: Promotion
     editor:
-      preview: false
+      preview: true
     folder: content/promotions
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true # Allow users to create new documents in this collection

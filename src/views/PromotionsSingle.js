@@ -98,7 +98,7 @@ export default ({ promotion, promotions }) => {
         </div>
       </div>
 
-      <PromotionsList promotions={promotions} />
+      {promotions && <PromotionsList promotions={promotions} />}
     </main>
   )
 }
