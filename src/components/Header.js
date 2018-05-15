@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from './Nav'
 
+import { getImageSrc } from '../util/getImageUrl'
 import './Header.css'
 
 class Header extends React.Component {
@@ -16,7 +17,10 @@ class Header extends React.Component {
     return (
       <header
         className={`header ${className}`}
-        style={{ backgroundImage: `url(${intro && intro.backgroundImage})` }}
+        style={{
+          backgroundImage: `url(${intro &&
+            getImageSrc(intro.backgroundImage, 1200)})`
+        }}
       >
         <div className='overlay' />
 

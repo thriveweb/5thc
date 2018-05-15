@@ -17,7 +17,7 @@ section2:
   image: /images/uploads/5c-image.jpg
   title: Sed ut perspiciatis unde omnis iste natus error sit volupt
 section3:
-  backgroundImage: /images/uploads/bsm.png
+  backgroundImage: /images/uploads/bsm.jpg
   buttonLabel: Apply for Finance
   buttonLinkTo: /the-process/
   content: >-

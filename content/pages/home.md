@@ -16,17 +16,17 @@ section1:
   title: I AM EVERYTHING YOU NEED TO KNOW ABOUT DIAMONDS
 section2:
   featureCard:
-    - image: /images/uploads/diamond-gem-cubic-zirconia-jewel-68740.png
+    - image: /images/uploads/diamond-gem-cubic-zirconia-jewel-68740.jpg
       linkTo: /the-process
       title: I find the best diamond
-    - image: /images/uploads/anne-edgar-119373.png
+    - image: /images/uploads/anne-edgar-119373.jpg
       linkTo: /the-process
       title: I help you choose the ring
-    - image: /images/uploads/verne-ho-23880.png
+    - image: /images/uploads/verne-ho-23880.jpg
       linkTo: /the-process
       title: I finance your investment
 section3:
-  backgroundImage: /images/uploads/mason-jones-39738.png
+  backgroundImage: /images/uploads/mason-jones-39738.jpg
   buttonLabel: Apply Now
   buttonLinkTo: /
   subtitle: >-

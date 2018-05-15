@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
+import { getImageSrc } from '../util/getImageUrl'
 
 import Content from '../components/Content'
 import InstagramFeed from '../components/InstagramFeed'
@@ -47,7 +48,7 @@ export default ({ page, socialMediaSettings, promotions }) => {
                 key={card.title + card.image}
                 className='col-md-4 d-flex'
                 style={{
-                  backgroundImage: `url(${card.image})`
+                  backgroundImage: `url(${getImageSrc(card.image, 800)})`
                 }}
               >
                 <Link
@@ -63,7 +64,9 @@ export default ({ page, socialMediaSettings, promotions }) => {
 
       <section
         className='section section-diamonds-alt text-center'
-        style={{ backgroundImage: `url(${section3.backgroundImage})` }}
+        style={{
+          backgroundImage: `url(${getImageSrc(section3.backgroundImage, 1200)})`
+        }}
       >
         <div className='container'>
           <div className='row'>
@@ -129,7 +132,7 @@ export default ({ page, socialMediaSettings, promotions }) => {
                       key={index + logo}
                       className='col-md-4 text-center  d-flex justify-content-center'
                     >
-                      <img src={logo.image} alt='' />
+                      <img src={getImageSrc(logo.image, 400)} alt='' />
                     </div>
                   ))}
               </div>
