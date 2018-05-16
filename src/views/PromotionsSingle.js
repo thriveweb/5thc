@@ -49,7 +49,7 @@ export default ({ promotion, promotions }) => {
 
               <div className='article-body'>
                 <div className='article-entry'>
-                  <Content source={promotion.content} />
+                  <Content source={promotion.body} />
 
                   {promotion.featuredImage && (
                     <LazyImage
@@ -59,19 +59,19 @@ export default ({ promotion, promotions }) => {
                   )}
                 </div>
 
-                <div className='article-entry-foot'>
-                  <div className='row'>
-                    <div className='col-4'>
-                      <h3>{promotion.accordionSection.title}</h3>
+                {promotion.accordionSection && (
+                  <div className='article-entry-foot'>
+                    <div className='row'>
+                      <div className='col-4'>
+                        <h3>{promotion.accordionSection.title}</h3>
 
-                      <div className='btn-actions'>
-                        <Link to='/contact/' className='btn btn-blue'>
-                          Enquire Now
-                        </Link>
+                        <div className='btn-actions'>
+                          <Link to='/contact/' className='btn btn-blue'>
+                            Enquire Now
+                          </Link>
+                        </div>
                       </div>
-                    </div>
 
-                    {promotion.accordionSection && (
                       <div className='col-8'>
                         <div className='container'>
                           <div id='accordion' className='accordion'>
@@ -89,9 +89,9 @@ export default ({ promotion, promotions }) => {
                           </div>
                         </div>
                       </div>
-                    )}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </article>
           </div>

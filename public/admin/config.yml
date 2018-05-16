@@ -192,7 +192,6 @@ collections: # A list of collections the CMS should be able to edit
       - {label: Date / Order, name: date, widget: date}
       - {label: Featured Image, name: featuredImage, widget: image, required: false}
       - {label: Content, name: body, widget: markdown}
-      - {label: Content, name: body, widget: markdown}
       - label: 'Accordion Section'
         name: 'accordionSection'
         widget: 'object'
