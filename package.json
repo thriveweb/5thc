@@ -52,8 +52,7 @@
     "start:app": "react-scripts start",
     "start:content": "chokidar 'content/**/**' -c 'npm run prepare-content'",
     "start:cms": "chokidar 'cms/cms.js' -c 'cd cms && npm run build'",
-    "build":
-      "npm-run-all -s prepare-content build:cms build:app build:postcss build:react-snapshot build:sitemap build:sw build:sha",
+    "build": "npm-run-all -s prepare-content build:cms build:app build:postcss build:react-snapshot build:sitemap build:sw build:sha",
     "build:app": "react-scripts build",
     "build:cms": "cd cms && NODE_ENV=production npm run build",
     "build:postcss": "postcss build/static/css/*.css -r",
@@ -70,6 +69,8 @@
     "eject": "react-scripts eject"
   },
   "reactSnapshot": {
-    "include": ["/404"]
+    "include": [
+      "/404"
+    ]
   }
 }
