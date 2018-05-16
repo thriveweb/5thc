@@ -81,3 +81,12 @@
   border: 1px solid currentColor;
   margin-bottom: 2rem;
 }
+
+.form-radio {
+  margin: 0;
+}
+
+.form-radio input {
+  height: auto;
+  margin-right: 10px;
+}

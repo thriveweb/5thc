@@ -49,6 +49,7 @@ class ApplyNow extends React.Component {
                       handleSelectPage={this.handleSelectPage}
                       incomeOptions={splitBy(page.incomeOptions, '|')}
                       employmentOptions={splitBy(page.employmentOptions, '|')}
+                      formRef={this.formRef}
                     />
                   </div>
                 </div>

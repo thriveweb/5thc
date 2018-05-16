@@ -17,12 +17,17 @@ const PartOne = ({
       <div className='col-md-6'>
         <div className='form-group'>
           <label>First Name</label>
-          <input className='form-control' type='text' name='firstName' />
+          <input
+            className='form-control'
+            type='text'
+            name='firstName'
+            required
+          />
         </div>
 
         <div className='form-group'>
           <label>Phone</label>
-          <input className='form-control' type='tel' name='phone' />
+          <input className='form-control' type='tel' name='phone' required />
         </div>
 
         <div className='form-group'>
@@ -30,8 +35,7 @@ const PartOne = ({
             <div className='col-md-6'>
               <label>State</label>
               <div className='form-group-select'>
-                <select className='custom-select' name='state'>
-                  <option selected />
+                <select className='custom-select' name='state' required>
                   <option value='NSW'>NSW</option>
                   <option value='QLD'>QLD</option>
                   <option value='SA'>SA</option>
@@ -46,7 +50,12 @@ const PartOne = ({
 
             <div className='col-md-6'>
               <label>Postcode</label>
-              <input className='form-control' type='text' name='postcode' />
+              <input
+                className='form-control'
+                type='text'
+                name='postcode'
+                required
+              />
             </div>
           </div>
         </div>
@@ -54,10 +63,9 @@ const PartOne = ({
         <div className='form-group'>
           <label>Employment</label>
           <div className='form-group-select'>
-            <select className='custom-select' name='employment'>
-              <option selected />
+            <select className='custom-select' name='employment' required>
               {employmentOptions.map(name => (
-                <option value={name}>{name}</option>
+                <option key={name}>{name}</option>
               ))}
             </select>
           </div>
@@ -67,25 +75,29 @@ const PartOne = ({
       <div className='col-md-6'>
         <div className='form-group'>
           <label>Last Name</label>
-          <input className='form-control' type='text' name='lastName' />
+          <input
+            className='form-control'
+            type='text'
+            name='lastName'
+            required
+          />
         </div>
 
         <div className='form-group'>
           <label>Email</label>
-          <input className='form-control' type='email' name='email' />
+          <input className='form-control' type='email' name='email' required />
         </div>
 
         <div className='form-group'>
           <label>Address</label>
-          <input className='form-control' type='text' name='address' />
+          <input className='form-control' type='text' name='address' required />
         </div>
 
         <div className='form-group'>
           <label>Monthly Income</label>
           <div className='form-group-select'>
-            <select className='custom-select' name='monthlyIncome'>
-              <option selected />
-              {incomeOptions.map(name => <option value={name}>{name}</option>)}
+            <select className='custom-select' name='monthlyIncome' required>
+              {incomeOptions.map(name => <option key={name}>{name}</option>)}
             </select>
           </div>
         </div>
@@ -99,16 +111,26 @@ const PartTwo = ({ display, disabled }) => (
     <div className='form-group'>
       <h4>Are you 18 or older?</h4>
 
-      <div className='form-check'>
-        <label className='form-check-label'>
-          <input type='checkbox' className='form-check-input' />
+      <div className='form-radio'>
+        <label className='form-radio-label'>
+          <input
+            type='radio'
+            className='form-radio-input'
+            name='over18'
+            value='yes'
+          />
           <span>yes</span>
         </label>
       </div>
 
-      <div className='form-check'>
-        <label className='form-check-label'>
-          <input type='checkbox' className='form-check-input' />
+      <div className='form-radio'>
+        <label className='form-radio-label'>
+          <input
+            type='radio'
+            className='form-radio-input'
+            name='over18'
+            value='no'
+          />
           <span>no</span>
         </label>
       </div>
@@ -117,16 +139,26 @@ const PartTwo = ({ display, disabled }) => (
     <div className='form-group'>
       <h4>Do you have a full time job?</h4>
 
-      <div className='form-check'>
-        <label className='form-check-label'>
-          <input type='checkbox' className='form-check-input' />
+      <div className='form-radio'>
+        <label className='form-radio-label'>
+          <input
+            type='radio'
+            className='form-radio-input'
+            name='fullTimeJob'
+            value='yes'
+          />
           <span>yes</span>
         </label>
       </div>
 
-      <div className='form-check'>
-        <label className='form-check-label'>
-          <input type='checkbox' className='form-check-input' />
+      <div className='form-radio'>
+        <label className='form-radio-label'>
+          <input
+            type='radio'
+            className='form-radio-input'
+            name='fullTimeJob'
+            value='no'
+          />
           <span>no</span>
         </label>
       </div>
@@ -135,16 +167,26 @@ const PartTwo = ({ display, disabled }) => (
     <div className='form-group'>
       <h4>Do you earn more than $40k per annum?</h4>
 
-      <div className='form-check'>
-        <label className='form-check-label'>
-          <input type='checkbox' className='form-check-input' />
+      <div className='form-radio'>
+        <label className='form-radio-label'>
+          <input
+            type='radio'
+            className='form-radio-input'
+            name='moreThan40PerAnnum'
+            value='yes'
+          />
           <span>yes</span>
         </label>
       </div>
 
-      <div className='form-check'>
-        <label className='form-check-label'>
-          <input type='checkbox' className='form-check-input' />
+      <div className='form-radio'>
+        <label className='form-radio-label'>
+          <input
+            type='radio'
+            className='form-radio-input'
+            name='moreThan40PerAnnum'
+            value='no'
+          />
           <span>no</span>
         </label>
       </div>
@@ -173,6 +215,14 @@ class Form extends React.Component {
     disabled: false
   }
 
+  formRef = React.createRef()
+
+  handleSelectPage = num => {
+    if (this.formRef.current && this.formRef.current.reportValidity()) {
+      this.props.handleSelectPage(num)
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault()
     if (this.state.disabled) return
@@ -180,6 +230,7 @@ class Form extends React.Component {
     const form = e.target
     const data = serialize(form)
     this.setState({ disabled: true })
+    console.log(data)
     fetch(form.action + '?' + stringify(data), {
       method: 'POST'
     })
@@ -212,10 +263,11 @@ class Form extends React.Component {
       subject,
       action,
       pageSelected,
-      handleSelectPage,
       incomeOptions,
       employmentOptions
     } = this.props
+
+    console.log(this.formRef)
 
     return (
       <form
@@ -225,6 +277,7 @@ class Form extends React.Component {
         onSubmit={this.handleSubmit}
         data-netlify=''
         data-netlify-honeypot='_gotcha'
+        ref={this.formRef}
       >
         {this.state.alert && (
           <div className='EnquiryForm--Alert' style={{ color: 'inherit' }}>
@@ -252,7 +305,7 @@ class Form extends React.Component {
                   className='btn btn-blue'
                   onClick={e => {
                     e.preventDefault()
-                    handleSelectPage(1)
+                    this.handleSelectPage(1)
                   }}
                   hidden={pageSelected === 1}
                 >
@@ -280,7 +333,7 @@ class Form extends React.Component {
                     className='btn btn-blue'
                     onClick={e => {
                       e.preventDefault()
-                      handleSelectPage(2)
+                      this.handleSelectPage(2)
                     }}
                   >
                     Next <i className='fa fa-chevron-right' />
