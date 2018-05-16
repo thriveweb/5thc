@@ -73,12 +73,22 @@ class Form extends React.Component {
           <div className='col-md-6'>
             <div className='form-group'>
               <label>First Name</label>
-              <input className='form-control' name='firstName' type='text' />
+              <input
+                className='form-control'
+                name='firstName'
+                type='text'
+                required
+              />
             </div>
 
             <div className='form-group'>
               <label>Phone</label>
-              <input className='form-control' name='lastName' type='tel' />
+              <input
+                className='form-control'
+                name='lastName'
+                type='tel'
+                required
+              />
             </div>
 
             <div className='form-group'>
@@ -86,7 +96,7 @@ class Form extends React.Component {
                 <div className='col-md-6'>
                   <label>State</label>
                   <div className='form-group-select'>
-                    <select className='custom-select' name='state'>
+                    <select className='custom-select' name='state' required>
                       <option selected />
                       <option value='NSW'>NSW</option>
                       <option value='QLD'>QLD</option>
@@ -102,7 +112,12 @@ class Form extends React.Component {
 
                 <div className='col-md-6'>
                   <label>Postcode</label>
-                  <input className='form-control' type='text' name='postcode' />
+                  <input
+                    className='form-control'
+                    type='text'
+                    name='postcode'
+                    required
+                  />
                 </div>
               </div>
             </div>
@@ -111,19 +126,29 @@ class Form extends React.Component {
           <div className='col-md-6'>
             <div className='form-group'>
               <label>Last Name</label>
-              <input className='form-control' type='text' name='lastName' />
+              <input
+                className='form-control'
+                type='text'
+                name='lastName'
+                required
+              />
             </div>
 
             <div className='form-group'>
               <label>Email</label>
-              <input className='form-control' type='email' name='email' />
+              <input
+                className='form-control'
+                type='email'
+                name='email'
+                required
+              />
             </div>
 
             <div className='form-group'>
               <label>Diamond Shape</label>
               <div className='form-group-select'>
                 <select className='custom-select' name='shape'>
-                  <option selected />
+                  <option selected required />
                   {shapes.map(shape => <option value={shape}>{shape}</option>)}
                 </select>
               </div>
@@ -138,6 +163,7 @@ class Form extends React.Component {
                 id='exampleTextarea'
                 name='message'
                 rows='3'
+                required
               />
             </div>
           </div>
