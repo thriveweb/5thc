@@ -230,7 +230,6 @@ class Form extends React.Component {
     const form = e.target
     const data = serialize(form)
     this.setState({ disabled: true })
-    console.log(data)
     fetch(form.action + '?' + stringify(data), {
       method: 'POST'
     })
@@ -266,8 +265,6 @@ class Form extends React.Component {
       incomeOptions,
       employmentOptions
     } = this.props
-
-    console.log(this.formRef)
 
     return (
       <form
